@@ -49,7 +49,7 @@ export default function Contact() {
                    Contact
                 </Typography>
                 <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' sx={{alignSelf:'flex-start'}} noWrap gutterBottom>
-                  Let's connect the socials below are the best way to reach me
+                  Let&apos;s connect the socials below are the best way to reach me
                 </Typography>
                 <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                   {socials.slice(0,2).map((social, index) => (

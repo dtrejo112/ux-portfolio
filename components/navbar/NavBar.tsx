@@ -17,7 +17,7 @@ export default function TopNavigationBar({props} : any) {
        
         <Toolbar disableGutters>
           <Typography className={`${roboto.className}`} variant="h6" component="a" sx={{ flexGrow: 1 }} href="/">
-              Danny's Portfolio
+              Danny&apos;s Portfolio
           </Typography>
          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
               <Link href='#about' style={{textDecoration: 'none'}}> 
