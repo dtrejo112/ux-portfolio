@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
-import  { getProjects } from './notion';
+import  { getProjects } from '../components/notion';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';

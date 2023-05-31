@@ -8,6 +8,7 @@ import { CardActionArea } from '@mui/material';
 
 import { Roboto } from 'next/font/google';
 import router from 'next/router';
+import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, PromiseLikeOfReactNode, Key } from 'react';
  
 const roboto = Roboto({
   weight: '500',
@@ -64,7 +65,7 @@ export default function ProjectCard({ projects }: Props) {
                   {project.properties['Name'].title[0].plain_text}
                   </Typography>
                   <Stack direction='row' spacing={1} key={index}>
-                  {project.properties['Tags'].multi_select.map((tag, index) => 
+                  {project.properties['Tags'].multi_select.map((tag: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | PromiseLikeOfReactNode | null | undefined; }, index: Key | null | undefined) => 
                      
                           <Chip className={`${roboto.className}`} key={index} variant="outlined" color="primary" label={tag.name}/>
                    )}

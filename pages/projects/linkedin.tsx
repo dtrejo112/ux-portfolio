@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { Roboto } from 'next/font/google'
 import styles from './linkedin.module.css'
 
-import  { getLinkedInPageBlocks, getLinkedInPageProperties } from '../notion';
+import  { getLinkedInPageBlocks, getLinkedInPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';

@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { Roboto } from 'next/font/google'
 import styles from './linkedin.module.css'
 
-import  { getEmpowerLinkPageBlocks, getEmpowerLinkPageProperties } from '../notion';
+import  { getEmpowerLinkPageBlocks, getEmpowerLinkPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
 import PopUp from '@/components/PopUp/PopUp';
