@@ -1,21 +1,21 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
   .contactHeader {
-    color: #404040;
-    font-weight: 500;
+    color: #404040 !important;
+    font-weight: 500 !important;
   }
   .textColor {
-    color: #404040;
+    color: #404040 !important;
 }
 .subTitle {
-  line-height: 1.5;
-  letter-spacing: -0.7px;
-  color: #000000;
-  font-weight: 400;
-  white-space: pre-line;
+  line-height: 1.5 !important;
+  letter-spacing: -0.7px !important;
+  color: #000000 !important;
+  font-weight: 400 !important;
+  white-space: pre-line !important;
 }

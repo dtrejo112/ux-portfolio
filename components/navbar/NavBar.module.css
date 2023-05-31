@@ -1,6 +1,6 @@
 .navBtn {
-    margin-top: 2;
-    margin-bottom: 2;
-    color: #404040;
-    display: block; 
+    margin-top: 2 !important;
+    margin-bottom: 2 !important;
+    color: #404040 !important;
+    display: block !important; 
 }
