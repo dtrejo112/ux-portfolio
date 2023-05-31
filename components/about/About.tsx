@@ -27,8 +27,8 @@ export default function About({props}: any) {
                   Hey, I&apos;m Danny.
                 </Typography>
                 <Tooltip title="Wave" followCursor> 
-                  <IconButton onClick={ () => setHello(1)} onAnimationEnd={() => setHello(0)}>
-                      <WavingHandOutlinedIcon hello={hello} className={styles.wave} sx={{color: ' #242424',  fontSize: {sm:'2.375rem', md: '64px'}}}/>
+                  <IconButton>
+                      <WavingHandOutlinedIcon className={styles.wave} sx={{color: ' #242424', fontSize: {sm:'2.375rem', md: '64px'}}}/>
                   </IconButton>
                 </Tooltip>
                 </Box>

@@ -27,8 +27,11 @@
     transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
     display: inline-block;
   }
-  .wave[hello='1'] {
+  .wave:focus {
     animation: wobble 2s 1;
+  }
+  .wave:active {
+            animation: none;
   }
   
   @keyframes wave-animation {
