@@ -5,18 +5,21 @@ import { AppBar, Button, Container, IconButton, Link, Paper, Toolbar } from '@mu
 import { Roboto } from 'next/font/google';
 import router from 'next/router';
 import styles from './NavBar.module.css'
+import logo from '../../public/logo.png'
+import Image from 'next/image';
+import DrawSharpIcon from '@mui/icons-material/DrawSharp';
+
 const roboto = Roboto({
-  weight: '500',
+  weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
 });
-
 export default function TopNavigationBar({props} : any) {
   return (
   
       <AppBar color='default' elevation={1} sx={{padding: '0rem 6rem 0rem 6rem'}}>
-       
         <Toolbar disableGutters>
-          <Typography className={`${roboto.className}`} variant="h6" component="a" sx={{ flexGrow: 1 }} href="/">
+          <DrawSharpIcon fontSize='large' sx={{ display: 'flex', mr: 1 }} />
+          <Typography className={`${roboto.className}`} variant="h6" component="a" sx={{ flexGrow: 1, fontWeight: '700' }} href="/">
               Danny&apos;s Portfolio
           </Typography>
          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>

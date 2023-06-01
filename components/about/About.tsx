@@ -28,7 +28,7 @@ export default function About({props}: any) {
                 </Typography>
                 <Tooltip title="Wave" followCursor> 
                   <IconButton>
-                      <WavingHandOutlinedIcon className={styles.wave} sx={{color: ' #242424', fontSize: {sm:'2.375rem', md: '64px'}}}/>
+                      <WavingHandOutlinedIcon className={styles.wave} sx={{color: ' #242424', fontSize: { xs:'48px', sm:'52px', md: '64px'}}}/>
                   </IconButton>
                 </Tooltip>
                 </Box>
