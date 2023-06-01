@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Roboto } from 'next/font/google'
-import styles from './linkedin.module.css'
+import styles from './sr1.module.css'
 
 import  { getSR1PageBlocks, getSR1PageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
