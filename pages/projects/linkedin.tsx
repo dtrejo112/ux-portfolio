@@ -158,7 +158,6 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                   {headings[2]}
                 </Typography>
                 <Grid container item spacing={2}> 
-                  
                     {bullets.slice(8, 11).map((bullet, index) => 
                         <Grid item xs={12} sm={12} md={12} key={index}> 
                           <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>

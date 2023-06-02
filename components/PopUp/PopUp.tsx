@@ -6,7 +6,7 @@ import { Roboto } from 'next/font/google';
 import router from 'next/router';
 import styles from './NavBar.module.css'
 import { useState } from 'react';
-
+import Image from 'next/image';
 const roboto = Roboto({
   weight: '500',
   subsets: ['latin'],
@@ -28,27 +28,38 @@ export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, sm
 
   return (
     <>
-        <img
+       <Container disableGutters maxWidth="sm" sx={{position: 'relative'}}> 
+        <Image
         src={url}
         alt={altText}
-        className={imageStyle}
+        className={`${imageStyle} "w-full h-auto"`}
         onClick={handleOpen}
+        sizes="100vw"
+        width="0"
+        height="0"
         />
+        </Container>
         <Modal
         open={open}
         onClose={handleClose}
         onClick={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        sx={{color: '#cfe8fc'}}
         > 
-        <Box className={modalStyle} sx={{ width: {xs: `${xsModal}`, sm: `${smModal}`, md: `${mdModal}` }}}> 
-        <img
+        <Container disableGutters sx={{bgcolor: 'background.paper', position: 'relative', width: {xs: `${xsModal}`, sm: `${smModal}`, md: `${mdModal}` }}}> 
+        <Image
         src={url}
         alt={altText}
-        className={imageStyle}
+        className={`${imageStyle} "w-full h-auto"`}
+        onClick={handleOpen}
+        sizes="100vw"
+        width="0"
+        height="0"
         />
-        </Box>
+        </Container>
         </Modal>
+        
     </>
   );
 }
