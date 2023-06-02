@@ -42,6 +42,7 @@ export async function getStaticProps() {
       images
 
     },
+    revalidate: 3600,
   };
 }
 
