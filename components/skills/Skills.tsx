@@ -50,35 +50,35 @@ export default function Skills() {
                   <Stepper nonLinear activeStep={activeStep}>
                       <Step sx={{
                                '& .MuiSvgIcon-root.Mui-active': {
-                                  color: '#fa5b0f',
+                                  color: '#D64309',
                                },
                               }}>
                         <StepButton onClick={handleStep(0)} 
                                     sx={{
                                       '& .MuiStepLabel-label.Mui-active': {
-                                        color: '#fa5b0f',
+                                        color: '#D64309',
                                       }
                                     }} > Basic </StepButton>
                       </Step>
                       <Step sx={{
                                '& .MuiSvgIcon-root.Mui-active': {
-                                color: '#f2b705',
+                                color: '#3a4aa7',
                                },
                               }}>
                         <StepButton onClick={handleStep(1)}  sx={{
                                       '& .MuiStepLabel-label.Mui-active': {
-                                        color: '#f2b705',
+                                        color: '#3a4aa7',
                                       }
                                     }} > Proficient </StepButton>
                       </Step>
                       <Step sx={{
                                '& .MuiSvgIcon-root.Mui-active': {
-                                color: '#45bf55',
+                                color: '#00645a',
                                },
                               }}>
                         <StepButton onClick={handleStep(2)} sx={{
                                       '& .MuiStepLabel-label.Mui-active': {
-                                        color: '#45bf55',
+                                        color: '#00645a',
                                       }
                                     }}> Advanced </StepButton>
                       </Step>
@@ -97,7 +97,7 @@ export default function Skills() {
                         secondary='Advanced'
                         sx={{ 
                               '& .MuiListItemText-secondary': {
-                                color: activeAdvanced ?  '#45bf55' : 'black',
+                                color: activeAdvanced ?  '#00645a' : 'black',
                               }
                            }}
                       />
@@ -111,7 +111,7 @@ export default function Skills() {
                         secondary='Proficient'
                         sx={{
                               '& .MuiListItemText-secondary': {
-                                color: activeProficient ?  '#f2b705': 'black',
+                                color: activeProficient ?  '#3a4aa7': 'black',
                               }
                             }}
                       />
@@ -125,7 +125,7 @@ export default function Skills() {
                         secondary='Proficient'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeProficient ?  '#f2b705': 'black',
+                            color: activeProficient ?  '#3a4aa7': 'black',
                           }
                         }}
                       />
@@ -139,7 +139,7 @@ export default function Skills() {
                         secondary='Proficient'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeProficient?  '#f2b705': 'black',
+                            color: activeProficient?  '#3a4aa7': 'black',
                           }
                         }}
                       />
@@ -153,7 +153,7 @@ export default function Skills() {
                         secondary='Basic'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeBasic ?  '#fa5b0f': 'black',
+                            color: activeBasic ?  '#D64309': 'black',
                           }
                         }}
                       />
@@ -173,7 +173,7 @@ export default function Skills() {
                         secondary='Proficient'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeProficient ?  '#f2b705': 'black',
+                            color: activeProficient ?  '#3a4aa7': 'black',
                           }
                         }}
                       />
@@ -187,7 +187,7 @@ export default function Skills() {
                         secondary='Proficient'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeProficient ?  '#f2b705': 'black',
+                            color: activeProficient ?  '#3a4aa7': 'black',
                           }
                         }}
                       />
@@ -201,7 +201,7 @@ export default function Skills() {
                         secondary='Basic'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeBasic ?  '#fa5b0f': 'black',
+                            color: activeBasic ?  '#D64309': 'black',
                           }
                         }}
                       />
@@ -215,7 +215,7 @@ export default function Skills() {
                         secondary='Proficient'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeProficient?  '#f2b705': 'black',
+                            color: activeProficient?  '#3a4aa7': 'black',
                           }
                         }}
                       />
@@ -229,7 +229,7 @@ export default function Skills() {
                         secondary='Basic'
                         sx={{
                           '& .MuiListItemText-secondary': {
-                            color: activeBasic ?  '#fa5b0f': 'black',
+                            color: activeBasic ?  '#D64309': 'black',
                           }
                         }}
                       />

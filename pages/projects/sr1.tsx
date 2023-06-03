@@ -44,7 +44,7 @@ export async function getStaticProps() {
       images
 
     },
-    revalidate: 3600,
+    revalidate: 3000,
   };
 }
 
@@ -89,7 +89,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='45%' />
+                   mdModal='45%' 
+                   priorityHero={true} />
           </Grid>
           </Grid>
           </Container>
@@ -237,7 +238,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='40%' />
+                   mdModal='40%' 
+                   priorityHero={false} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[2]} 
@@ -245,7 +247,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='40%' />
+                   mdModal='40%' 
+                   priorityHero={false} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[3]} 
@@ -253,7 +256,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='40%' />
+                   mdModal='40%' 
+                   priorityHero={false} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[4]} 
@@ -261,7 +265,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='20%' />
+                   mdModal='20%' 
+                   priorityHero={false} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[5]} 
@@ -269,7 +274,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='40%' />
+                   mdModal='40%' 
+                   priorityHero={false} />
                 </Grid>
             </Grid>
           </Container>
@@ -296,7 +302,8 @@ export default function SR1({ projectProperties, headings, bullets, images }: Pr
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='30%'/>
+                   mdModal='30%'
+                   priorityHero={false} />
                
                 </Grid>
             </Grid>

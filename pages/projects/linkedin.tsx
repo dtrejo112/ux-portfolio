@@ -42,7 +42,7 @@ export async function getStaticProps() {
       images
 
     },
-    revalidate: 3600,
+    revalidate: 3000,
   };
 }
 
@@ -86,7 +86,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                    imageStyle={styles.responsive} 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
-                   mdModal='70%' />
+                   mdModal='70%' 
+                   priorityHero={true} />
           </Grid>
           </Grid>
           </Container>
@@ -172,7 +173,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                       imageStyle={styles.responsive} 
                       modalStyle={styles.imgModal} 
                       xsModal='90%' smModal='90%' 
-                      mdModal='70%' />
+                      mdModal='70%' 
+                      priorityHero={false} />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}> 
                   <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
@@ -185,7 +187,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                       imageStyle={styles.responsive} 
                       modalStyle={styles.imgModal} 
                       xsModal='90%' smModal='90%' 
-                      mdModal='40%' />
+                      mdModal='40%' 
+                      priorityHero={false} />
                   </Grid>
                 </Grid>        
               </Grid>
@@ -216,7 +219,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                       imageStyle={styles.responsive} 
                       modalStyle={styles.imgModal} 
                       xsModal='85%' smModal='85%' 
-                      mdModal='35%' />
+                      mdModal='35%' 
+                      priorityHero={false} />
                   </Grid>
                   <Grid container item spacing={2}> 
                     {bullets.slice(15, 17).map((bullet, index) => 

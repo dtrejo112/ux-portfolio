@@ -20,14 +20,15 @@ interface PopUp {
     xsModal: string;
     smModal: string;
     mdModal: string;
+    priorityHero: boolean;
   }
-export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, smModal, mdModal}: PopUp) {
+export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, smModal, mdModal, priorityHero}: PopUp) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
   return (
-    <>
+      <> 
        <Container disableGutters maxWidth="sm" sx={{position: 'relative'}}> 
         <Image
         src={url}
@@ -37,8 +38,10 @@ export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, sm
         sizes="100vw"
         width="0"
         height="0"
+        priority={priorityHero}
         />
         </Container>
+
         <Modal
         open={open}
         onClose={handleClose}
