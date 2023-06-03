@@ -7,6 +7,7 @@ import router from 'next/router';
 import styles from './NavBar.module.css'
 import { useState } from 'react';
 import Image from 'next/image';
+
 const roboto = Roboto({
   weight: '500',
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, sm
 
   return (
       <> 
+      
        <Container disableGutters maxWidth="sm" sx={{position: 'relative'}}> 
         <Image
         src={url}
@@ -39,6 +41,8 @@ export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, sm
         width="0"
         height="0"
         priority={priorityHero}
+        // placeholder='blur'
+        // blurDataURL="data:../../public/1x1-3f90e3ff.png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0n/D4PwAFewKzHX5IsAAAAABJRU5ErkJggg=="
         />
         </Container>
 
