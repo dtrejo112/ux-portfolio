@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { Chip, Container, Divider, Grid, Stack } from '@mui/material';
+import { Chip, Container, Grid, Stack } from '@mui/material';
 import { CardActionArea } from '@mui/material';
 
 import { Roboto } from 'next/font/google';

@@ -1,18 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
 import  { getProjects } from '../components/notion';
-
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Chip, Container, Grid, Stack } from '@mui/material';
-import { CardActionArea } from '@mui/material';
 import ProjectCard from '@/components/cards/ProjectCard';
 import TopNavigationBar from '@/components/navbar/NavBar';
 import About from '@/components/about/About';

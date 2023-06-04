@@ -3,7 +3,6 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { AppBar, Button, Container, IconButton, Link, Paper, Toolbar } from '@mui/material';
 import { Roboto } from 'next/font/google';
-import router from 'next/router';
 import styles from './NavBar.module.css'
 import DrawSharpIcon from '@mui/icons-material/DrawSharp';
 

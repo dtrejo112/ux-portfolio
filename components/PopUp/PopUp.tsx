@@ -1,12 +1,9 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/system';
-import { AppBar, Button, Container, IconButton, Link, Modal, Paper, Toolbar } from '@mui/material';
+import {Container, Modal} from '@mui/material';
 import { Roboto } from 'next/font/google';
-import router from 'next/router';
-import styles from './NavBar.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { Client } from '@notionhq/client';
 
 const roboto = Roboto({
   weight: '500',
@@ -23,27 +20,45 @@ interface PopUp {
     mdModal: string;
     priorityHero: boolean;
   }
-export default function PopUp({url, altText, imageStyle, modalStyle, xsModal, smModal, mdModal, priorityHero}: PopUp) {
+export default function PopUp({url, altText, imageStyle, xsModal, smModal, mdModal, priorityHero}: PopUp) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [refresh, setRefresh] = useState(url);
+
+  useEffect(() => {
+   setRefresh(url);
+  },[url]);
 
   return (
       <> 
       
        <Container disableGutters maxWidth="sm" sx={{position: 'relative'}}> 
-        <Image
-        src={url}
+       { priorityHero ? <Image
+        src={refresh}
         alt={altText}
         className={`${imageStyle} "w-full h-auto"`}
         onClick={handleOpen}
         sizes="100vw"
         width="0"
         height="0"
-        priority={priorityHero}
-        // placeholder='blur'
-        // blurDataURL="data:../../public/1x1-3f90e3ff.png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0n/D4PwAFewKzHX5IsAAAAABJRU5ErkJggg=="
-        />
+        priority={true}
+        placeholder='blur'
+        blurDataURL="data:../../public/1x1-3f90e3ff.png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0n/D4PwAFewKzHX5IsAAAAABJRU5ErkJggg=="
+        onError={() => setRefresh('../../public/Refresh PAge.png')}
+        /> :
+        <Image
+        src={refresh}
+        alt={altText}
+        className={`${imageStyle} "w-full h-auto"`}
+        onClick={handleOpen}
+        sizes="100vw"
+        width="0"
+        height="0"
+        placeholder='blur'
+        blurDataURL="data:../../public/1x1-3f90e3ff.png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0n/D4PwAFewKzHX5IsAAAAABJRU5ErkJggg=="
+        onError={() => setRefresh('../../public/Refresh PAge.png')}
+        />}
         </Container>
 
         <Modal

@@ -1,14 +1,13 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import { AppBar, Button, Card, CardActionArea, CardActions, CardContent, Chip, Container, Grid, IconButton, Paper, Stack, Toolbar } from '@mui/material';
+import {Button, Card, CardActions, CardContent, Container, Grid, Stack} from '@mui/material';
 import { Roboto } from 'next/font/google';
 import styles from './Contact.module.css';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import router from 'next/router';
 import CopyButton from '../Copy/CopyButton';
 
 const roboto = Roboto({

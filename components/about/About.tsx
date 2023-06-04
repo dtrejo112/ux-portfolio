@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import { AppBar, Button, Container, Icon, IconButton, Paper, Toolbar, Tooltip } from '@mui/material';
+import {Button, Container, IconButton, Tooltip } from '@mui/material';
 import { Roboto } from 'next/font/google';
-import router from 'next/router';
 import styles from './About.module.css';
 import WavingHandOutlinedIcon from '@mui/icons-material/WavingHandOutlined';
 import { useState } from 'react';

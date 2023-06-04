@@ -12,7 +12,7 @@ const roboto = Roboto({
   subsets: ['latin'],
 });
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   
   const headings: string[] = [];
   const bullets: string[] = [];
@@ -40,8 +40,8 @@ export async function getServerSideProps() {
       headings,
       bullets,
       images
-
-    }
+    },
+    revalidate: 3000,
   };
 }
 

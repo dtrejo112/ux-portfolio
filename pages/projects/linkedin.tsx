@@ -4,8 +4,6 @@ import styles from './linkedin.module.css'
 
 import  { getLinkedInPageBlocks, getLinkedInPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import Modal from '@mui/material/Modal';
-import { useState } from 'react';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
 import PopUp from '@/components/PopUp/PopUp';
 
@@ -14,7 +12,7 @@ const roboto = Roboto({
   subsets: ['latin'],
 });
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const headings: string[] = [];
   const bullets: string[] = [];
   const images: string[] = [];
@@ -40,8 +38,8 @@ export async function getServerSideProps() {
       headings,
       bullets,
       images
-
-    }
+    },
+    revalidate: 3000,
   };
 }
 

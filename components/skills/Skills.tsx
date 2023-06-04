@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import { AppBar, Button, Container, Grid, IconButton, List, ListItem, ListItemIcon, ListItemText, Paper, Step, StepButton, StepConnector, StepIconProps, StepLabel, Stepper, stepConnectorClasses, styled } from '@mui/material';
+import { Container, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Step, StepButton, Stepper} from '@mui/material';
 import { Roboto } from 'next/font/google';
 import styles from './Skills.module.css'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useState } from 'react';
-import { Check } from '@mui/icons-material';
 
 const roboto = Roboto({
   weight: '500',
