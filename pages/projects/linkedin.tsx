@@ -66,7 +66,7 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
         <section>
         <Container> 
         <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-          <Grid item xs={12} sm={12} md={7} sx={{alignSelf: 'center'}}> 
+          <Grid item xs={12} sm={12} md={7} sx={{alignSelf: 'flex-start'}}> 
             <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
               {projectProperties['Name'].title[0].plain_text}
             </Typography>
@@ -85,6 +85,7 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                    xsModal='90%' smModal='90%' 
                    mdModal='70%' 
                    priorityHero={true} />
+         
           </Grid>
           </Grid>
           </Container>

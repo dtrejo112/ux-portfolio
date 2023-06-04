@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Container, Modal} from '@mui/material';
+import {Box, Container, Modal} from '@mui/material';
 import { Roboto } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Client } from '@notionhq/client';
-
+import r from '../../public/Refresh PAge.png'
 const roboto = Roboto({
   weight: '500',
   subsets: ['latin'],
@@ -32,9 +32,9 @@ export default function PopUp({url, altText, imageStyle, xsModal, smModal, mdMod
 
   return (
       <> 
-      
        <Container disableGutters maxWidth="sm" sx={{position: 'relative'}}> 
-       { priorityHero ? <Image
+       { priorityHero ? 
+       <Image
         src={refresh}
         alt={altText}
         className={`${imageStyle} "w-full h-auto"`}
@@ -42,10 +42,11 @@ export default function PopUp({url, altText, imageStyle, xsModal, smModal, mdMod
         sizes="100vw"
         width="0"
         height="0"
+        quality={100}
         priority={true}
         placeholder='blur'
         blurDataURL="data:../../public/1x1-3f90e3ff.png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0n/D4PwAFewKzHX5IsAAAAABJRU5ErkJggg=="
-        onError={() => setRefresh('../../public/Refresh PAge.png')}
+        onError={() => setRefresh('/../public/notionrefresh.png')}
         /> :
         <Image
         src={refresh}
@@ -57,10 +58,10 @@ export default function PopUp({url, altText, imageStyle, xsModal, smModal, mdMod
         height="0"
         placeholder='blur'
         blurDataURL="data:../../public/1x1-3f90e3ff.png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0n/D4PwAFewKzHX5IsAAAAABJRU5ErkJggg=="
-        onError={() => setRefresh('../../public/Refresh PAge.png')}
+        onError={() => setRefresh('/../public/notionrefresh.png')}
         />}
         </Container>
-
+       
         <Modal
         open={open}
         onClose={handleClose}
@@ -81,7 +82,7 @@ export default function PopUp({url, altText, imageStyle, xsModal, smModal, mdMod
         />
         </Container>
         </Modal>
-        
-    </>
+      
+      </>
   );
 }
