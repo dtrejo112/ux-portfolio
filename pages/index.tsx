@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import  { getProjects } from '../components/notion';
 import ProjectCard from '@/components/cards/ProjectCard';
 import TopNavigationBar from '@/components/navbar/NavBar';
@@ -8,8 +7,6 @@ import { useRef } from 'react';
 import Skills from '@/components/skills/Skills';
 import Contact from '@/components/contact/Contact';
 import Footer from '@/components/footer/Footer';
-
-const inter = Inter({ subsets: ['latin'] })
 
 export async function getStaticProps() {
   const projects = await getProjects();

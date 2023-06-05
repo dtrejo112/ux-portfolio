@@ -1,12 +1,16 @@
 // @ts-nocheck
-import { Roboto } from 'next/font/google'
-import styles from './movitix.module.css'
-
+import { Roboto } from 'next/font/google';
+import styles from './movitix.module.css';
+import Head from 'next/head';
 import  { getMoviTixPageBlocks, getMoviTixPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import PopUp from '@/components/PopUp/PopUp';
-
+import Skeleton from '@mui/material/Skeleton';
+import dynamic from 'next/dynamic';
+const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
+  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
+  ssr: false,
+});
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
@@ -68,6 +72,10 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
 
   return (
     <>
+         <Head>
+          <title> MoviTix </title>
+          <meta name="description" content="A case study for a movie ticketing app" />
+        </Head>
         <CaseStudyNav />
         <section>
         <Container> 
@@ -87,9 +95,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[0]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='22%' 
                    priorityHero={true}
                    blockID={imageBlocks[0]} />
           </Grid>
@@ -177,9 +182,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[1]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
                    priorityHero={false}
                    blockID={imageBlocks[1]} />
               </Grid>
@@ -187,9 +189,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[2]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
                    priorityHero={false}
                    blockID={imageBlocks[2]} />
               </Grid>
@@ -197,9 +196,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[3]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
                    priorityHero={false}
                    blockID={imageBlocks[3]} />
               </Grid>
@@ -246,9 +242,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[4]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='40%' 
                    priorityHero={false}
                    blockID={imageBlocks[4]} />
               </Grid>
@@ -256,9 +249,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[5]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='22%' 
                    priorityHero={false}
                    blockID={imageBlocks[5]} />
                    
@@ -267,9 +257,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[6]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='22%' 
                    priorityHero={false}
                    blockID={imageBlocks[6]} />
               </Grid>
@@ -295,10 +282,7 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
               <Grid item xs={12} sm={12} md={6}> 
                   <PopUp url={images[7]} 
                    altText='image one' 
-                   imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
+                   imageStyle={styles.responsive}
                    priorityHero={false}
                    blockID={imageBlocks[7]} />
                 </Grid>
@@ -306,9 +290,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                  <PopUp url={images[8]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='22%' 
                    priorityHero={false}
                    blockID={imageBlocks[8]} />
                 </Grid>
@@ -316,9 +297,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[9]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='22%' 
                    priorityHero={false}
                    blockID={imageBlocks[9]} />
                 </Grid>
@@ -326,9 +304,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[10]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='22%' 
                    priorityHero={false}
                    blockID={imageBlocks[10]} />
                 </Grid>

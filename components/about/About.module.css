@@ -11,6 +11,7 @@
     letter-spacing: -1.9px !important;
     line-height: 70px !important;
     font-weight: 900 !important;
+    padding-bottom: 18px;
 
   }
   .subTitle {
@@ -19,6 +20,7 @@
     color: #000000 !important;
     font-weight: 400 !important;
     white-space: pre-line !important;
+    font-size: 2rem !important;
   }
   .wave {
     animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */

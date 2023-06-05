@@ -5,15 +5,13 @@ import {Button, Container, IconButton, Tooltip } from '@mui/material';
 import { Roboto } from 'next/font/google';
 import styles from './About.module.css';
 import WavingHandOutlinedIcon from '@mui/icons-material/WavingHandOutlined';
-import { useState } from 'react';
 
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
 });
 
-export default function About({props}: any) {
-  const [hello, setHello] = useState(0);
+export default function About() {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -21,8 +19,8 @@ export default function About({props}: any) {
     <>
         <section id='about'> 
             <Container className={styles.container}>
-               <Box sx={{display: 'flex', alignItems: 'center', gap: '8px', flexDirection: 'row'}}> 
-                <Typography className={`${styles.aboutMe} ${roboto.className}`} variant='h2' noWrap gutterBottom>
+               <Box sx={{display: 'flex', alignItems: 'flex-start', gap: '12px', flexDirection: 'row' }}> 
+                <Typography className={`${styles.aboutMe} ${roboto.className}`} variant='h1' noWrap gutterBottom>
                   Hey, I&apos;m Danny.
                 </Typography>
                 <Tooltip title="Wave" followCursor> 
@@ -31,7 +29,7 @@ export default function About({props}: any) {
                   </IconButton>
                 </Tooltip>
                 </Box>
-                <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6'  noWrap gutterBottom>
+                <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h2'  noWrap gutterBottom>
                   I&apos;m a Designer and Front-End Developer based in Chicago. {"\n"} 
                   Designing with development in mind.
                 </Typography>

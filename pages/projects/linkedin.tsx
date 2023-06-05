@@ -1,11 +1,16 @@
 // @ts-nocheck
-import { Roboto } from 'next/font/google'
-import styles from './linkedin.module.css'
-
+import { Roboto } from 'next/font/google';
+import styles from './linkedin.module.css';
+import Head from 'next/head';
 import  { getLinkedInPageBlocks, getLinkedInPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import PopUp from '@/components/PopUp/PopUp';
+import Skeleton from '@mui/material/Skeleton';
+import dynamic from 'next/dynamic';
+const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
+  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
+  ssr: false,
+});
 
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
@@ -66,6 +71,10 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
 
   return (
     <>
+        <Head>
+        <title> LinkedIn </title>
+        <meta name="description" content="A case study for a design excercise" />
+        </Head>
         <CaseStudyNav />
         <section>
         <Container> 
@@ -82,15 +91,11 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
             <Button variant='contained' sx={{mt: '24px'}}onClick={() => onView(`${projectProperties['Prototype'].url}`)} > View Prototype </Button>
           </Grid>
           <Grid item xs={12} sm={12} md={5}> 
-          <PopUp url={images[0]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
-                   priorityHero={true}
-                   blockID={imageBlocks[0]} />
-         
+            <PopUp url={images[0]} 
+                    altText='image one' 
+                    imageStyle={styles.responsive} 
+                    priorityHero={true}
+                    blockID={imageBlocks[0]} />
           </Grid>
           </Grid>
           </Container>
@@ -174,9 +179,6 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
                     <PopUp url={images[1]} 
                       altText='image one' 
                       imageStyle={styles.responsive} 
-                      modalStyle={styles.imgModal} 
-                      xsModal='90%' smModal='90%' 
-                      mdModal='70%' 
                       priorityHero={false}
                       blockID={imageBlocks[1]} />
                   </Grid>
@@ -189,9 +191,6 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
                     <PopUp url={images[2]} 
                       altText='image one' 
                       imageStyle={styles.responsive} 
-                      modalStyle={styles.imgModal} 
-                      xsModal='90%' smModal='90%' 
-                      mdModal='40%' 
                       priorityHero={false}
                       blockID={imageBlocks[2]}  />
                   </Grid>
@@ -222,9 +221,6 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
               <PopUp url={images[3]} 
                       altText='image one' 
                       imageStyle={styles.responsive} 
-                      modalStyle={styles.imgModal} 
-                      xsModal='85%' smModal='85%' 
-                      mdModal='35%' 
                       priorityHero={false}
                       blockID={imageBlocks[3]} />
                   </Grid>

@@ -1,11 +1,16 @@
 // @ts-nocheck
-import { Roboto } from 'next/font/google'
-import styles from './sr1.module.css'
-
+import { Roboto } from 'next/font/google';
+import styles from './sr1.module.css';
+import Head from 'next/head';
 import  { getSR1PageBlocks, getSR1PageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import PopUp from '@/components/PopUp/PopUp';
+import Skeleton from '@mui/material/Skeleton';
+import dynamic from 'next/dynamic';
+const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
+  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
+  ssr: false,
+});
 
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
@@ -68,7 +73,11 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
   };
 
   return (
-    <>
+    <>   
+         <Head>
+          <title> SR1 </title>
+          <meta name="description" content="A case study for a music royalties application" />
+        </Head>
         <CaseStudyNav />
         <section>
         <Container> 
@@ -88,9 +97,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
             <PopUp url={images[0]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='45%' 
                    priorityHero={true}
                    blockID={imageBlocks[0]} />
           </Grid>
@@ -238,9 +244,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                   <PopUp url={images[1]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='40%' 
                    priorityHero={false}
                    blockID={imageBlocks[1]} />
                 </Grid>
@@ -248,9 +251,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 <PopUp url={images[2]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='40%' 
                    priorityHero={false}
                    blockID={imageBlocks[2]} />
                 </Grid>
@@ -258,9 +258,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 <PopUp url={images[3]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='40%' 
                    priorityHero={false}
                    blockID={imageBlocks[3]} />
                 </Grid>
@@ -268,9 +265,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 <PopUp url={images[4]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='20%' 
                    priorityHero={false}
                    blockID={imageBlocks[4]} />
                 </Grid>
@@ -278,9 +272,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 <PopUp url={images[5]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='40%' 
                    priorityHero={false}
                    blockID={imageBlocks[5]} />
                 </Grid>
@@ -307,9 +298,6 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 <PopUp url={images[6]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='30%'
                    priorityHero={false}
                    blockID={imageBlocks[6]} />
                

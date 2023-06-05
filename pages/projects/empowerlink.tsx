@@ -1,12 +1,16 @@
 // @ts-nocheck
 import { Roboto } from 'next/font/google'
 import styles from './empowerlink.module.css'
-
+import Head from 'next/head'
 import  { getEmpowerLinkPageBlocks, getEmpowerLinkPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import PopUp from '@/components/PopUp/PopUp';
-
+import Skeleton from '@mui/material/Skeleton';
+import dynamic from 'next/dynamic';
+const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
+  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
+  ssr: false,
+});
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
@@ -68,6 +72,10 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
 
   return (
     <>
+        <Head>
+        <title> Empower Link </title>
+        <meta name="description" content="A case study for a health insurance application" />
+        </Head>
         <CaseStudyNav />
         <section>
         <Container> 
@@ -85,11 +93,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
           </Grid>
           <Grid item xs={12} sm={12} md={3}> 
                 <PopUp url={images[0]} 
-                   altText='image one' 
+                   altText='Hero image for empowerlink projext' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='30%' 
                    priorityHero={true}
                    blockID={imageBlocks[0]} />
           </Grid>
@@ -214,11 +219,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
               </Grid>
               <Grid item xs={12} sm={12} md={4}> 
                 <PopUp url={images[1]} 
-                   altText='image one' 
+                   altText='First image for empower link project' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='30%' 
                    priorityHero={false} 
                    blockID={imageBlocks[1]} />
               </Grid>
@@ -226,9 +228,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[2]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='30%' 
                    priorityHero={false} 
                    blockID={imageBlocks[2]} />
               </Grid>
@@ -236,9 +235,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 <PopUp url={images[3]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='30%' 
                    priorityHero={false} 
                    blockID={imageBlocks[3]} />
               </Grid>
@@ -265,9 +261,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                   <PopUp url={images[4]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
                    priorityHero={false} 
                    blockID={imageBlocks[4]} />
                 </Grid>
@@ -275,9 +268,6 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                  <PopUp url={images[5]} 
                    altText='image one' 
                    imageStyle={styles.responsive} 
-                   modalStyle={styles.imgModal} 
-                   xsModal='90%' smModal='90%' 
-                   mdModal='70%' 
                    priorityHero={false} 
                    blockID={imageBlocks[5]} />
                 </Grid>
