@@ -7,11 +7,10 @@
   }
   .aboutMe {
     color: #242424 !important;
-    
     letter-spacing: -1.9px !important;
     line-height: 70px !important;
     font-weight: 900 !important;
-    padding-bottom: 18px;
+    padding-bottom: 20px;
 
   }
   .subTitle {

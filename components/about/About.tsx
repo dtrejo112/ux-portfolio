@@ -19,7 +19,7 @@ export default function About() {
     <>
         <section id='about'> 
             <Container className={styles.container}>
-               <Box sx={{display: 'flex', alignItems: 'flex-start', gap: '12px', flexDirection: 'row' }}> 
+               <Box sx={{display: 'flex', alignItems: 'flex-start', gap: '12px', flexDirection: {xs: 'column', sm: 'row'}}}> 
                 <Typography className={`${styles.aboutMe} ${roboto.className}`} variant='h1' noWrap gutterBottom>
                   Hey, I&apos;m Danny.
                 </Typography>
