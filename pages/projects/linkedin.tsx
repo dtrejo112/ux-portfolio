@@ -16,6 +16,7 @@ export async function getStaticProps() {
   const headings: string[] = [];
   const bullets: string[] = [];
   const images: string[] = [];
+  const imageBlocks: string[] = [];
   
   const projectProperties = await getLinkedInPageProperties();
   
@@ -30,6 +31,7 @@ export async function getStaticProps() {
     }
     if(result.type == 'image') {
       images.push(result.image.file.url);
+      imageBlocks.push(result.id);
     }
   })
   return {
@@ -37,7 +39,8 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images
+      images,
+      imageBlocks,
     },
     revalidate: 3000,
   };
@@ -52,10 +55,11 @@ interface Props {
   headings: [string];
   bullets: [string];
   images: [string];
+  imageBlocks: [string];
 
 }
 
-export default function LinkedIn({ projectProperties, headings, bullets, images }: Props) {
+export default function LinkedIn({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -84,7 +88,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='70%' 
-                   priorityHero={true} />
+                   priorityHero={true}
+                   blockID={imageBlocks[0]} />
          
           </Grid>
           </Grid>
@@ -172,7 +177,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                       modalStyle={styles.imgModal} 
                       xsModal='90%' smModal='90%' 
                       mdModal='70%' 
-                      priorityHero={false} />
+                      priorityHero={false}
+                      blockID={imageBlocks[1]} />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}> 
                   <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
@@ -186,7 +192,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                       modalStyle={styles.imgModal} 
                       xsModal='90%' smModal='90%' 
                       mdModal='40%' 
-                      priorityHero={false} />
+                      priorityHero={false}
+                      blockID={imageBlocks[2]}  />
                   </Grid>
                 </Grid>        
               </Grid>
@@ -218,7 +225,8 @@ export default function LinkedIn({ projectProperties, headings, bullets, images 
                       modalStyle={styles.imgModal} 
                       xsModal='85%' smModal='85%' 
                       mdModal='35%' 
-                      priorityHero={false} />
+                      priorityHero={false}
+                      blockID={imageBlocks[3]} />
                   </Grid>
                   <Grid container item spacing={2}> 
                     {bullets.slice(15, 17).map((bullet, index) => 

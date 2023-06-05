@@ -17,6 +17,7 @@ export async function getStaticProps() {
   const headings: string[] = [];
   const bullets: string[] = [];
   const images: string[] = [];
+  const imageBlocks: string[] = [];
   
   const projectProperties = await getMoviTixPageProperties();
   
@@ -31,6 +32,7 @@ export async function getStaticProps() {
     }
     if(result.type == 'image') {
       images.push(result.image.file.url);
+      imageBlocks.push(result.id);
     }
   })
 
@@ -39,7 +41,8 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images
+      images,
+      imageBlocks,
     },
     revalidate: 3000,
   };
@@ -54,10 +57,11 @@ interface Props {
   headings: [string];
   bullets: [string];
   images: [string];
+  imageBlocks: [string];
 
 }
 
-export default function MoviTix({ projectProperties, headings, bullets, images }: Props) {
+export default function MoviTix({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -86,7 +90,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='22%' 
-                   priorityHero={true} />
+                   priorityHero={true}
+                   blockID={imageBlocks[0]} />
           </Grid>
           </Grid>
           </Container>
@@ -175,7 +180,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='70%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[1]} />
               </Grid>
               <Grid item xs={12} sm={12} md={5}> 
                 <PopUp url={images[2]} 
@@ -184,7 +190,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='70%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[2]} />
               </Grid>
               <Grid item xs={12} sm={12} md={5}> 
                 <PopUp url={images[3]} 
@@ -193,7 +200,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='70%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[3]} />
               </Grid>
             </Grid>
           </Container>
@@ -241,7 +249,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='40%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[4]} />
               </Grid>
               <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[5]} 
@@ -250,7 +259,9 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='22%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[5]} />
+                   
               </Grid>
               <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[6]} 
@@ -259,7 +270,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='22%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[6]} />
               </Grid>
             </Grid>
           </Container>
@@ -287,7 +299,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='70%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[7]} />
                 </Grid>
                  <Grid item xs={12} sm={12} md={6}> 
                  <PopUp url={images[8]} 
@@ -296,7 +309,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='22%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[8]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[9]} 
@@ -305,7 +319,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='22%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[9]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[10]} 
@@ -314,7 +329,8 @@ export default function MoviTix({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='22%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[10]} />
                 </Grid>
             </Grid>
             

@@ -17,6 +17,7 @@ export async function getStaticProps() {
   const headings: string[] = [];
   const bullets: string[] = [];
   const images: string[] = [];
+  const imageBlocks: string[] = [];
   
   const projectProperties = await getTeachMiPageProperties();
   
@@ -31,6 +32,7 @@ export async function getStaticProps() {
     }
     if(result.type == 'image') {
       images.push(result.image.file.url);
+      imageBlocks.push(result.id);
     }
   })
 
@@ -39,7 +41,8 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images
+      images,
+      imageBlocks,
     },
     revalidate: 3000,
   };
@@ -54,10 +57,11 @@ interface Props {
   headings: [string];
   bullets: [string];
   images: [string];
+  imageBlocks: [string];
 
 }
 
-export default function TeachMi({ projectProperties, headings, bullets, images }: Props) {
+export default function TeachMi({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -86,7 +90,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={true} />
+                   priorityHero={true}
+                   blockID={imageBlocks[0]} />
           </Grid>
           </Grid>
           </Container>
@@ -175,7 +180,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[1]} />
           </Grid>
             </Grid>
           </Container>
@@ -244,7 +250,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[2]} />
                 </Grid>
                  <Grid item xs={12} sm={12} md={6}> 
                  <PopUp url={images[3]} 
@@ -253,7 +260,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[3]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[4]} 
@@ -262,7 +270,9 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[4]} />
+                   
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[5]} 
@@ -271,7 +281,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[5]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[6]} 
@@ -280,7 +291,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[6]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[7]} 
@@ -289,7 +301,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[7]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[8]} 
@@ -298,7 +311,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[8]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[9]} 
@@ -307,7 +321,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[9]} />
                 </Grid>
                 <Grid container item spacing={2}> 
                       {bullets.slice(39).map((bullet, index) => 
@@ -325,7 +340,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[10]} />
                 </Grid>
                  <Grid item xs={12} sm={12} md={6}> 
                  <PopUp url={images[11]} 
@@ -334,7 +350,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[11]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[12]} 
@@ -343,7 +360,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[12]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[13]} 
@@ -352,7 +370,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[13]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[14]} 
@@ -361,7 +380,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[14]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[15]} 
@@ -370,7 +390,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[16]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[16]} 
@@ -379,7 +400,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[16]} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
                 <PopUp url={images[17]} 
@@ -388,7 +410,8 @@ export default function TeachMi({ projectProperties, headings, bullets, images }
                    modalStyle={styles.imgModal} 
                    xsModal='90%' smModal='90%' 
                    mdModal='45%' 
-                   priorityHero={false} />
+                   priorityHero={false}
+                   blockID={imageBlocks[17]} />
                 </Grid>
             </Grid>
             
