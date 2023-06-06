@@ -92,7 +92,7 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
           </Grid>
           <Grid item xs={12} sm={12} md={5}> 
             <PopUp url={images[0]} 
-                    altText='image one' 
+                    altText='Hero image for linkedin design project' 
                     imageStyle={styles.responsive} 
                     priorityHero={true}
                     blockID={imageBlocks[0]} />
