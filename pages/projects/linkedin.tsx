@@ -70,7 +70,7 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
   };
 
   return (
-    <>
+    <> 
         <Head>
         <title> LinkedIn </title>
         <meta name="description" content="A case study for a design excercise" />

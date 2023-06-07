@@ -47,7 +47,7 @@ export default function PopUp(
         placeholder='blur'
         blurDataURL={blur}
         onError={async () => {
-          setRefresh('/../public/loading.png')
+          setRefresh('/loading.png')
           const res = await fetch(`/api/image?blockID=${blockID}`).then((res) => res.json())
           setRefresh(res.imageSrc)
         }}
@@ -62,7 +62,7 @@ export default function PopUp(
         placeholder='blur'
         blurDataURL={blur}
         onError={async () => {
-          setRefresh('/../public/loading.png')
+          setRefresh('/loading.png')
           const res = await fetch(`/api/image?blockID=${blockID}`).then((res) => res.json())
           setRefresh(res.imageSrc)
         }}
