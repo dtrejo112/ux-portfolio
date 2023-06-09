@@ -2,16 +2,30 @@
 import { Roboto } from 'next/font/google';
 import styles from './teachmi.module.css';
 import Head from 'next/head';
+import Image from 'next/image';
 import  { getTeachMiPageBlocks, getTeachMiPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import Skeleton from '@mui/material/Skeleton';
-import dynamic from 'next/dynamic';
 
-const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
-  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
-  ssr: false,
-});
+import imageOne from '../../public/teachmiimages/teachmiimage-1.png';
+import imageTwo from '../../public/teachmiimages/teachmiimage-2.png';
+import imageThree from '../../public/teachmiimages/teachmiimage-3.png';
+import imageFour from '../../public/teachmiimages/teachmiimage-4.png';
+import imageFive from '../../public/teachmiimages/teachmiimage-5.png';
+import imageSix from '../../public/teachmiimages/teachmiimage-6.png';
+import imageSeven from '../../public/teachmiimages/teachmiimage-7.png';
+import imageEight from '../../public/teachmiimages/teachmiimage-8.png';
+import imageNine from '../../public/teachmiimages/teachmiimage-9.png';
+import imageTen from '../../public/teachmiimages/teachmiimage-10.png';
+import imageEleven from '../../public/teachmiimages/teachmiimage-11.png';
+import imageTwelve from '../../public/teachmiimages/teachmiimage-12.png';
+import imageThirteen from '../../public/teachmiimages/teachmiimage-13.png';
+import imageFourteen from '../../public/teachmiimages/teachmiimage-14.png';
+import imageFifteen from '../../public/teachmiimages/teachmiimage-15.png';
+import imageSixteen from '../../public/teachmiimages/teachmiimage-16.png';
+import imageSeventeen from '../../public/teachmiimages/teachmiimage-17.png';
+import imageEighteen from '../../public/teachmiimages/teachmiimage-18.png';
+
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
@@ -21,8 +35,6 @@ export async function getStaticProps() {
   
   const headings: string[] = [];
   const bullets: string[] = [];
-  const images: string[] = [];
-  const imageBlocks: string[] = [];
   
   const projectProperties = await getTeachMiPageProperties();
   
@@ -35,10 +47,6 @@ export async function getStaticProps() {
      if(result.type == 'bulleted_list_item') {
       bullets.push(result.bulleted_list_item.rich_text[0].text.content);
     }
-    if(result.type == 'image') {
-      images.push(result.image.file.url);
-      imageBlocks.push(result.id);
-    }
   })
 
   return {
@@ -46,10 +54,7 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images,
-      imageBlocks,
     },
-    revalidate: 3000,
   };
 }
 
@@ -61,12 +66,11 @@ interface Props {
   projectProperties: ProjectProperties[];
   headings: [string];
   bullets: [string];
-  images: [string];
-  imageBlocks: [string];
+
 
 }
 
-export default function TeachMi({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
+export default function TeachMi({ projectProperties, headings, bullets }: Props) {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -93,11 +97,16 @@ export default function TeachMi({ projectProperties, headings, bullets, images, 
             <Button variant='contained' sx={{mt: '24px'}}onClick={() => onView(`${projectProperties['Prototype'].url}`)} > View Prototype </Button>
           </Grid>
           <Grid item xs={12} sm={12} md={5}> 
-                <PopUp url={images[0]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={true}
-                   blockID={imageBlocks[0]} />
+          <Image
+                      src={imageOne}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
           </Grid>
           </Grid>
           </Container>
@@ -180,11 +189,16 @@ export default function TeachMi({ projectProperties, headings, bullets, images, 
                 </Grid>        
               </Grid>
               <Grid item xs={12} sm={12} md={5}> 
-                <PopUp url={images[1]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[1]} />
+              <Image
+                      src={imageTwo}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
           </Grid>
             </Grid>
           </Container>
@@ -247,61 +261,101 @@ export default function TeachMi({ projectProperties, headings, bullets, images, 
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} md={6}> 
-                  <PopUp url={images[2]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[2]} />
+              <Image
+                      src={imageThree}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                  <Grid item xs={12} sm={12} md={6}> 
-                 <PopUp url={images[3]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[3]} />
+                 <Image
+                      src={imageFour}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[4]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive}
-                   priorityHero={false}
-                   blockID={imageBlocks[4]} />
+                <Image
+                      src={imageFive}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                    
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[5]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[5]} />
+                <Image
+                      src={imageSix}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[6]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[6]} />
+                <Image
+                      src={imageSeven}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[7]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[7]} />
+                <Image
+                      src={imageEight}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[8]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive}
-                   priorityHero={false}
-                   blockID={imageBlocks[8]} />
+                <Image
+                      src={imageNine}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[9]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[9]} />
+                <Image
+                      src={imageTen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid container item spacing={2}> 
                       {bullets.slice(39).map((bullet, index) => 
@@ -313,60 +367,100 @@ export default function TeachMi({ projectProperties, headings, bullets, images, 
                       )} 
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                  <PopUp url={images[10]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[10]} />
+                <Image
+                      src={imageEleven}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                  <Grid item xs={12} sm={12} md={6}> 
-                 <PopUp url={images[11]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[11]} />
+                 <Image
+                      src={imageTwelve}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[12]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[12]} />
+                <Image
+                      src={imageThirteen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[13]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[13]} />
+                <Image
+                      src={imageFourteen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[14]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[14]} />
+                <Image
+                      src={imageFifteen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[15]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[16]} />
+                <Image
+                      src={imageSixteen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[16]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[16]} />
+                <Image
+                      src={imageSeventeen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[17]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[17]} />
+                <Image
+                      src={imageEighteen}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                      placeholder='blur' />
                 </Grid>
             </Grid>
             

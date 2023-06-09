@@ -4,6 +4,7 @@ import { Roboto } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+
 const roboto = Roboto({
   weight: '500',
   subsets: ['latin'],

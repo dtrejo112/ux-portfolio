@@ -2,15 +2,17 @@
 import { Roboto } from 'next/font/google';
 import styles from './sr1.module.css';
 import Head from 'next/head';
+import Image from 'next/image';
 import  { getSR1PageBlocks, getSR1PageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import Skeleton from '@mui/material/Skeleton';
-import dynamic from 'next/dynamic';
-const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
-  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
-  ssr: false,
-});
+import imageOne from '../../public/sr1images/sr1image-1.png';
+import imageTwo from '../../public/sr1images/sr1image-2.png';
+import imageThree from '../../public/sr1images/sr1image-3.png';
+import imageFour from '../../public/sr1images/sr1image-4.png';
+import imageFive from '../../public/sr1images/sr1image-5.png';
+import imageSix from '../../public/sr1images/sr1image6.png';
+import imageSeven from '../../public/sr1images/sr1image-7.png';
 
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
@@ -21,8 +23,6 @@ export async function getStaticProps() {
   
   const headings: string[] = [];
   const bullets: string[] = [];
-  const images: string[] = [];
-  const imageBlocks: string[] = [];
   
   const projectProperties = await getSR1PageProperties();
   
@@ -35,10 +35,7 @@ export async function getStaticProps() {
      if(result.type == 'bulleted_list_item') {
       bullets.push(result.bulleted_list_item.rich_text[0].text.content);
     }
-    if(result.type == 'image') {
-      images.push(result.image.file.url);
-      imageBlocks.push(result.id);
-    }
+  
   })
 
   return {
@@ -46,10 +43,7 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images,
-      imageBlocks,
     },
-    revalidate: 3000,
   };
 }
 
@@ -61,12 +55,10 @@ interface Props {
   projectProperties: ProjectProperties[];
   headings: [string];
   bullets: [string];
-  images: [string];
-  imageBlocks: [string];
 
 }
 
-export default function SR1({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
+export default function SR1({ projectProperties, headings, bullets}: Props) {
   
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
@@ -94,11 +86,16 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
             <Button variant='contained' sx={{mt: '24px'}}onClick={() => onView(`${projectProperties['Prototype'].url}`)} > View Prototype </Button>
           </Grid>
           <Grid item xs={12} sm={12} md={5}> 
-            <PopUp url={images[0]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={true}
-                   blockID={imageBlocks[0]} />
+          <Image
+                      src={imageOne}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      priority
+                       />
           </Grid>
           </Grid>
           </Container>
@@ -241,39 +238,59 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} md={6}> 
-                  <PopUp url={images[1]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[1]} />
+                  <Image
+                      src={imageTwo}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[2]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[2]} />
+                <Image
+                      src={imageThree}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[3]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[3]} />
+                <Image
+                      src={imageFour}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[4]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[4]} />
+                <Image
+                      src={imageFive}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[5]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[5]} />
+                <Image
+                      src={imageSix}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' />
                 </Grid>
             </Grid>
           </Container>
@@ -295,11 +312,15 @@ export default function SR1({ projectProperties, headings, bullets, images, imag
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} md={6}> 
-                <PopUp url={images[6]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false}
-                   blockID={imageBlocks[6]} />
+              <Image
+                      src={imageSeven}
+                      alt={'Hero image for movitix projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' />
                
                 </Grid>
             </Grid>

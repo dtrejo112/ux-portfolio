@@ -2,15 +2,17 @@
 import { Roboto } from 'next/font/google'
 import styles from './empowerlink.module.css'
 import Head from 'next/head'
+import Image from 'next/image';
 import  { getEmpowerLinkPageBlocks, getEmpowerLinkPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import Skeleton from '@mui/material/Skeleton';
-import dynamic from 'next/dynamic';
-const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
-  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
-  ssr: false,
-});
+import imageOne from '../../public/empowerlinkimages/empowerlinkimage-1.png';
+import imageTwo from '../../public/empowerlinkimages/empowerlinkimage-2.png';
+import imageThree from '../../public/empowerlinkimages/empowerlinkimage-3.png';
+import imageFour from '../../public/empowerlinkimages/empowerlinkimage-4.png';
+import imageFive from '../../public/empowerlinkimages/empowerlinkimage-5.png';
+import imageSix from '../../public/empowerlinkimages/empowerlinkimage-6.png';
+
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
@@ -20,8 +22,6 @@ export async function getStaticProps() {
   
   const headings: string[] = [];
   const bullets: string[] = [];
-  const images: string[] = [];
-  const imageBlocks: string[] = [];
   
   const projectProperties = await getEmpowerLinkPageProperties();
   
@@ -34,10 +34,6 @@ export async function getStaticProps() {
      if(result.type == 'bulleted_list_item') {
       bullets.push(result.bulleted_list_item.rich_text[0].text.content);
     }
-    if(result.type == 'image') {
-      images.push(result.image.file.url);
-      imageBlocks.push(result.id);
-    }
   })
 
   return {
@@ -45,10 +41,7 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images,
-      imageBlocks,
-    },
-    revalidate: 3000,
+    }
   };
 }
 
@@ -60,12 +53,9 @@ interface Props {
   projectProperties: ProjectProperties[];
   headings: [string];
   bullets: [string];
-  images: [string];
-  imageBlocks: [string];
-
 }
 
-export default function MoviTix({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
+export default function MoviTix({ projectProperties, headings, bullets}: Props) {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -92,11 +82,16 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
             <Button variant='contained' sx={{mt: '24px'}}onClick={() => onView(`${projectProperties['Prototype'].url}`)} > View Prototype </Button>
           </Grid>
           <Grid item xs={12} sm={12} md={3}> 
-                <PopUp url={images[0]} 
-                   altText='Hero image for empowerlink projext' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={true}
-                   blockID={imageBlocks[0]} />
+                <Image
+                  src={imageOne}
+                  alt={'Hero image for empowerlink projext'}
+                  className={`${styles.responsive} "w-full h-auto"`}
+                  sizes="100vw"
+                  width="0"
+                  height="0"
+                  quality={100}
+                  priority
+                  placeholder='blur' /> 
           </Grid>
           </Grid>
           </Container>
@@ -218,25 +213,37 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} md={4}> 
-                <PopUp url={images[1]} 
-                   altText='First image for empower link project' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false} 
-                   blockID={imageBlocks[1]} />
+                <Image
+                    src={imageTwo}
+                    alt={'Hero image for empowerlink projext'}
+                    className={`${styles.responsive} "w-full h-auto"`}
+                    sizes="100vw"
+                    width="0"
+                    height="0"
+                    quality={100}
+                    placeholder='blur' /> 
               </Grid>
               <Grid item xs={12} sm={12} md={4}> 
-                <PopUp url={images[2]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false} 
-                   blockID={imageBlocks[2]} />
+              <Image
+                    src={imageThree}
+                    alt={'Hero image for empowerlink projext'}
+                    className={`${styles.responsive} "w-full h-auto"`}
+                    sizes="100vw"
+                    width="0"
+                    height="0"
+                    quality={100}
+                    placeholder='blur' /> 
               </Grid>
               <Grid item xs={12} sm={12} md={4}> 
-                <PopUp url={images[3]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false} 
-                   blockID={imageBlocks[3]} />
+                 <Image
+                    src={imageFour}
+                    alt={'Hero image for empowerlink projext'}
+                    className={`${styles.responsive} "w-full h-auto"`}
+                    sizes="100vw"
+                    width="0"
+                    height="0"
+                    quality={100}
+                    placeholder='blur' /> 
               </Grid>
             </Grid>
           </Container>
@@ -258,18 +265,26 @@ export default function MoviTix({ projectProperties, headings, bullets, images, 
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} md={6}> 
-                  <PopUp url={images[4]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false} 
-                   blockID={imageBlocks[4]} />
+              <Image
+                    src={imageFive}
+                    alt={'Hero image for empowerlink projext'}
+                    className={`${styles.responsive} "w-full h-auto"`}
+                    sizes="100vw"
+                    width="0"
+                    height="0"
+                    quality={100}
+                    placeholder='blur' /> 
                 </Grid>
                  <Grid item xs={12} sm={12} md={6}> 
-                 <PopUp url={images[5]} 
-                   altText='image one' 
-                   imageStyle={styles.responsive} 
-                   priorityHero={false} 
-                   blockID={imageBlocks[5]} />
+                 <Image
+                    src={imageSix}
+                    alt={'Hero image for empowerlink projext'}
+                    className={`${styles.responsive} "w-full h-auto"`}
+                    sizes="100vw"
+                    width="0"
+                    height="0"
+                    quality={100}
+                    placeholder='blur' /> 
                 </Grid>
             </Grid>
           </Container>

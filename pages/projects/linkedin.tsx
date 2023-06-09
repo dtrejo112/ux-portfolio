@@ -2,15 +2,14 @@
 import { Roboto } from 'next/font/google';
 import styles from './linkedin.module.css';
 import Head from 'next/head';
+import Image from 'next/image';
 import  { getLinkedInPageBlocks, getLinkedInPageProperties } from '../../components/notion';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
-import Skeleton from '@mui/material/Skeleton';
-import dynamic from 'next/dynamic';
-const PopUp = dynamic(() => import('../../components/PopUp/PopUp'), {
-  loading: () => <Skeleton variant="rectangular" width={400} height={350} />,
-  ssr: false,
-});
+import imageOne from '../../public/linkedinimages/linkedinimage-1.png'
+import imageTwo from '../../public/linkedinimages/linkedinimage-2.png'
+import imageThree from '../../public/linkedinimages/linkedinimage-3.png'
+import imageFour from '../../public/linkedinimages/linkedinimage-4.png'
 
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
@@ -44,10 +43,7 @@ export async function getStaticProps() {
       projectProperties,
       headings,
       bullets,
-      images,
-      imageBlocks,
     },
-    revalidate: 3000,
   };
 }
 
@@ -59,12 +55,9 @@ interface Props {
   projectProperties: ProjectProperties[];
   headings: [string];
   bullets: [string];
-  images: [string];
-  imageBlocks: [string];
-
 }
 
-export default function LinkedIn({ projectProperties, headings, bullets, images, imageBlocks }: Props) {
+export default function LinkedIn({ projectProperties, headings, bullets}: Props) {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -91,11 +84,16 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
             <Button variant='contained' sx={{mt: '24px'}}onClick={() => onView(`${projectProperties['Prototype'].url}`)} > View Prototype </Button>
           </Grid>
           <Grid item xs={12} sm={12} md={5}> 
-            <PopUp url={images[0]} 
-                    altText='Hero image for linkedin design project' 
-                    imageStyle={styles.responsive} 
-                    priorityHero={true}
-                    blockID={imageBlocks[0]} />
+              <Image
+                  src={imageOne}
+                  alt={'Hero image for linkedin projext'}
+                  className={`${styles.responsive} "w-full h-auto"`}
+                  sizes="100vw"
+                  width="0"
+                  height="0"
+                  quality={100}
+                  priority
+                  placeholder='blur' /> 
           </Grid>
           </Grid>
           </Container>
@@ -176,11 +174,15 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
                       )} 
                  
                     <Grid item xs={12} sm={12} md={6}> 
-                    <PopUp url={images[1]} 
-                      altText='image one' 
-                      imageStyle={styles.responsive} 
-                      priorityHero={false}
-                      blockID={imageBlocks[1]} />
+                    <Image
+                    src={imageTwo}
+                    alt={'Hero image for linkedin projext'}
+                    className={`${styles.responsive} "w-full h-auto"`}
+                    sizes="100vw"
+                    width="0"
+                    height="0"
+                    quality={100}
+                    placeholder='blur' /> 
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}> 
                   <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
@@ -188,11 +190,15 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
                   </Typography>
                   </Grid>
                   <Grid item xs={12} sm={12} md={6}> 
-                    <PopUp url={images[2]} 
-                      altText='image one' 
-                      imageStyle={styles.responsive} 
-                      priorityHero={false}
-                      blockID={imageBlocks[2]}  />
+                    <Image
+                      src={imageThree}
+                      alt={'Hero image for linkedin projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' /> 
                   </Grid>
                 </Grid>        
               </Grid>
@@ -218,11 +224,15 @@ export default function LinkedIn({ projectProperties, headings, bullets, images,
                   </Grid>
               </Grid>
               <Grid item xs={6} sm={10} md={6}> 
-              <PopUp url={images[3]} 
-                      altText='image one' 
-                      imageStyle={styles.responsive} 
-                      priorityHero={false}
-                      blockID={imageBlocks[3]} />
+                   <Image
+                      src={imageFour}
+                      alt={'Hero image for linkedin projext'}
+                      className={`${styles.responsive} "w-full h-auto"`}
+                      sizes="100vw"
+                      width="0"
+                      height="0"
+                      quality={100}
+                      placeholder='blur' /> 
                   </Grid>
                   <Grid container item spacing={2}> 
                     {bullets.slice(15, 17).map((bullet, index) => 
