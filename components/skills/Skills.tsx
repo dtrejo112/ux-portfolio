@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import { Container, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Step, StepButton, Stepper} from '@mui/material';
+import { Container, Grid, List, ListItem, ListItemIcon, ListItemText, ListSubheader, Paper, Step, StepButton, Stepper} from '@mui/material';
 import { Roboto } from 'next/font/google';
 import styles from './Skills.module.css'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -45,48 +45,18 @@ export default function Skills() {
                 <Typography className={`${styles.skillsHeader} ${roboto.className}`} sx={{alignSelf:'flex-start'}} variant="h3" gutterBottom>
                    Skills
                 </Typography>
-                <Box sx={{ width: '100%', padding: '1rem 0rem 2rem 0rem' }}>
-                  <Stepper nonLinear activeStep={activeStep}>
-                      <Step sx={{
-                               '& .MuiSvgIcon-root.Mui-active': {
-                                  color: '#D64309',
-                               },
-                              }}>
-                        <StepButton onClick={handleStep(0)} 
-                                    sx={{
-                                      '& .MuiStepLabel-label.Mui-active': {
-                                        color: '#D64309',
-                                      }
-                                    }} > Basic </StepButton>
-                      </Step>
-                      <Step sx={{
-                               '& .MuiSvgIcon-root.Mui-active': {
-                                color: '#3a4aa7',
-                               },
-                              }}>
-                        <StepButton onClick={handleStep(1)}  sx={{
-                                      '& .MuiStepLabel-label.Mui-active': {
-                                        color: '#3a4aa7',
-                                      }
-                                    }} > Proficient </StepButton>
-                      </Step>
-                      <Step sx={{
-                               '& .MuiSvgIcon-root.Mui-active': {
-                                color: '#00645a',
-                               },
-                              }}>
-                        <StepButton onClick={handleStep(2)} sx={{
-                                      '& .MuiStepLabel-label.Mui-active': {
-                                        color: '#00645a',
-                                      }
-                                    }}> Advanced </StepButton>
-                      </Step>
-                  </Stepper>
-                </Box>
+        
                 <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} }container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                   <Grid item xs={12} sm={12} md={6}>
                     <Paper variant='outlined'> 
-                    <List sx={{padding: '1rem 2rem 1rem 2rem'}}>
+                    <List sx={{padding: '1rem 2rem 1rem 2rem'}}
+                      aria-labelledby="design-skills-subheader"
+                      subheader={
+                        <ListSubheader component="div" id="design-skills-subheader">
+                        Design Skills
+                        </ListSubheader>
+                      }
+                    >
                     <ListItem>
                       <ListItemIcon>
                         <CheckCircleOutlineIcon />
@@ -94,11 +64,6 @@ export default function Skills() {
                       <ListItemText
                         primary="Figma"
                         secondary='Advanced'
-                        sx={{ 
-                              '& .MuiListItemText-secondary': {
-                                color: activeAdvanced ?  '#00645a' : 'black',
-                              }
-                           }}
                       />
                     </ListItem>
                     <ListItem>
@@ -108,11 +73,6 @@ export default function Skills() {
                       <ListItemText
                         primary="CSS"
                         secondary='Proficient'
-                        sx={{
-                              '& .MuiListItemText-secondary': {
-                                color: activeProficient ?  '#3a4aa7': 'black',
-                              }
-                            }}
                       />
                     </ListItem>
                     <ListItem>
@@ -120,13 +80,8 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="HTML5"
+                        primary="JavaScript"
                         secondary='Proficient'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeProficient ?  '#3a4aa7': 'black',
-                          }
-                        }}
                       />
                     </ListItem>
                     <ListItem>
@@ -134,13 +89,8 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="Javascript"
-                        secondary='Proficient'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeProficient?  '#3a4aa7': 'black',
-                          }
-                        }}
+                        primary="Empathy"
+                        secondary='Advanced'
                       />
                     </ListItem>
                     <ListItem>
@@ -149,12 +99,7 @@ export default function Skills() {
                       </ListItemIcon>
                       <ListItemText
                         primary="Prototyping"
-                        secondary='Basic'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeBasic ?  '#D64309': 'black',
-                          }
-                        }}
+                        secondary='Proficient'
                       />
                     </ListItem>
                 </List>
@@ -162,7 +107,14 @@ export default function Skills() {
               </Grid>
               <Grid item xs={12} sm={12} md={6}>
                     <Paper variant='outlined'> 
-                    <List sx={{padding: '1rem 2rem 1rem 2rem'}}>
+                    <List sx={{padding: '1rem 2rem 1rem 2rem'}} 
+                     aria-labelledby="developer-skills-subheader"
+                     subheader={
+                       <ListSubheader component="div" id="developer-skills-subheader">
+                           Developer Skills
+                       </ListSubheader>
+                     }
+                    >
                     <ListItem>
                       <ListItemIcon>
                         <CheckCircleOutlineIcon />
@@ -170,11 +122,6 @@ export default function Skills() {
                       <ListItemText
                         primary="Material UI"
                         secondary='Proficient'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeProficient ?  '#3a4aa7': 'black',
-                          }
-                        }}
                       />
                     </ListItem>
                     <ListItem>
@@ -184,11 +131,6 @@ export default function Skills() {
                       <ListItemText
                         primary="Next.js"
                         secondary='Proficient'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeProficient ?  '#3a4aa7': 'black',
-                          }
-                        }}
                       />
                     </ListItem>
                     <ListItem>
@@ -198,11 +140,6 @@ export default function Skills() {
                       <ListItemText
                         primary="Typescript"
                         secondary='Basic'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeBasic ?  '#D64309': 'black',
-                          }
-                        }}
                       />
                     </ListItem>
                     <ListItem>
@@ -212,11 +149,6 @@ export default function Skills() {
                       <ListItemText
                         primary="React"
                         secondary='Proficient'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeProficient?  '#3a4aa7': 'black',
-                          }
-                        }}
                       />
                     </ListItem>
                     <ListItem>
@@ -226,11 +158,6 @@ export default function Skills() {
                       <ListItemText
                         primary="Git"
                         secondary='Basic'
-                        sx={{
-                          '& .MuiListItemText-secondary': {
-                            color: activeBasic ?  '#D64309': 'black',
-                          }
-                        }}
                       />
                     </ListItem>
                 </List>

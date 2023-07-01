@@ -21,7 +21,7 @@ export default function About() {
             <Container className={styles.container}>
                <Box sx={{display: 'flex', alignItems: 'flex-start', gap: '12px', flexDirection: {xs: 'column', sm: 'row'}}}> 
                 <Typography className={`${styles.aboutMe} ${roboto.className}`} variant='h1' noWrap gutterBottom>
-                  Hey, I&apos;m Danny.
+                  Hello, I&apos;m Danny.
                 </Typography>
                 <Tooltip title="Wave" followCursor> 
                   <IconButton>
@@ -30,7 +30,6 @@ export default function About() {
                 </Tooltip>
                 </Box>
                 <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h2'  noWrap gutterBottom>
-                  I&apos;m a Designer and Front-End Developer based in Chicago. {"\n"} 
                   Designing with development in mind.
                 </Typography>
                 <Button variant='contained' onClick={() => onView('/Danny_Trejo_Resume.pdf')} > View Resume </Button>
