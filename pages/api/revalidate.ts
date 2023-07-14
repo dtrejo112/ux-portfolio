@@ -19,6 +19,3 @@ export default async function handler(
       return res.status(500).send('Error revalidating');
     }
   }
-
-  // https://<your-site.com>/api/revalidate?secret=<token>
-  // `{http://dannys-ux-portfolio.vercel.app/api/revalidate?path=/projects/empowerlink&secret=40fc7607fc71dc180bab911d3a46e4ba76215115a7dd574290ea8a9a5b2fd29e`
