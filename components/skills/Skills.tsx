@@ -49,11 +49,16 @@ export default function Skills() {
                 <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} }container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                   <Grid item xs={12} sm={12} md={6}>
                     <Paper variant='outlined'> 
-                    <List sx={{padding: '1rem 2rem 1rem 2rem'}}
-                      aria-labelledby="design-skills-subheader"
-                      subheader={
+                    <List 
+                          sx= {
+                                {
+                                  padding: '1rem 2rem 1rem 2rem'
+                                }
+                              }
+                          aria-labelledby="design-skills-subheader"
+                          subheader={
                         <ListSubheader component="div" id="design-skills-subheader">
-                        Design Skills
+                           Skills
                         </ListSubheader>
                       }
                     >
@@ -62,16 +67,7 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="Figma"
-                        secondary='Advanced'
-                      />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon>
-                        <CheckCircleOutlineIcon />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary="CSS"
+                        primary="User Journeys"
                         secondary='Proficient'
                       />
                     </ListItem>
@@ -80,7 +76,16 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="JavaScript"
+                        primary="Personas"
+                        secondary='Proficient'
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <CheckCircleOutlineIcon />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary="Site Maps"
                         secondary='Proficient'
                       />
                     </ListItem>
@@ -107,11 +112,16 @@ export default function Skills() {
               </Grid>
               <Grid item xs={12} sm={12} md={6}>
                     <Paper variant='outlined'> 
-                    <List sx={{padding: '1rem 2rem 1rem 2rem'}} 
-                     aria-labelledby="developer-skills-subheader"
-                     subheader={
+                    <List 
+                        sx= { 
+                              { 
+                                padding: '1rem 2rem 1rem 2rem'
+                              }
+                            } 
+                        aria-labelledby="developer-skills-subheader"
+                        subheader={
                        <ListSubheader component="div" id="developer-skills-subheader">
-                           Developer Skills
+                            Tools
                        </ListSubheader>
                      }
                     >
@@ -120,8 +130,8 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="Material UI"
-                        secondary='Proficient'
+                        primary="Figma"
+                        secondary='Advanced'
                       />
                     </ListItem>
                     <ListItem>
@@ -138,16 +148,7 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="Typescript"
-                        secondary='Basic'
-                      />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon>
-                        <CheckCircleOutlineIcon />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary="React"
+                        primary="JavaScript"
                         secondary='Proficient'
                       />
                     </ListItem>
@@ -156,7 +157,16 @@ export default function Skills() {
                         <CheckCircleOutlineIcon />
                       </ListItemIcon>
                       <ListItemText
-                        primary="Git"
+                        primary="CSS"
+                        secondary='Proficient'
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <CheckCircleOutlineIcon />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary="InVision"
                         secondary='Basic'
                       />
                     </ListItem>

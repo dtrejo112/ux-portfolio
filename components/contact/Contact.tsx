@@ -23,7 +23,7 @@ export default function Contact() {
                 <Typography className={`${styles.contactHeader} ${roboto.className}`} sx={{alignSelf:'flex-start'}} variant="h3" gutterBottom>
                    Contact
                 </Typography>
-                <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h4' sx={{alignSelf:'flex-start'}} noWrap gutterBottom>
+                <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6'component={'h4'} sx={{alignSelf:'flex-start'}} noWrap gutterBottom>
                   Let&apos;s connect the socials below are the best way to reach me
                 </Typography>
                 <Grid sx={{justifyContent:"flex-start"} } container spacing={4}>
