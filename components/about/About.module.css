@@ -3,47 +3,53 @@
     flex-direction: column !important;
     justify-content: space-between !important;
     align-items: flex-start !important;
-    gap: 24px !important;
+    gap: 32px !important;
   }
-  .aboutMe {
-    color: #242424 !important;
-    letter-spacing: -1.9px !important;
-    line-height: 70px !important;
-    font-weight: 900 !important;
-    padding-bottom: 22px !important;
-
+  .titleContainer {
+    flex: none;
+    height: auto;
+    max-width: 600px;
+    min-width: 300px;
+    position: relative;
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: break-word;
+    word-wrap: break-word;
   }
-  .subTitle {
-    line-height: 1.5 !important;
-    letter-spacing: -0.7px !important;
-    color: #000000 !important;
+  .subTitleContainer {
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0px;
+    height: min-content;
+    justify-content: center;
+    max-width: 600px;
+    min-width: 300px;
+    overflow: visible;
+    padding: 20px 0 0;
+    position: relative;
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+  .title {
+    line-height: 1.3em !important;
+    letter-spacing: -0.32px !important;
+    color:#000000 !important;
     font-weight: 400 !important;
     white-space: pre-line !important;
-    font-size: 2rem !important;
+    font-size: 2.625rem !important;
+    white-space: pre-wrap;
   }
-  .wave {
-    animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
-    animation-duration: 2s;        /* Change to speed up or slow down */
-    animation-iteration-count: 1;  /* Never stop waving :) */
-    transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
-    display: inline-block;
+  .subTitle {
+    font-style: normal !important;
+    line-height: 1.4em !important;
+    letter-spacing: 0 !important;
+    color:#000000bf !important;
+    font-weight: 400 !important;
+    white-space: pre-line !important;
+    font-size: 1.3rem !important;
   }
-  .wave:focus {
-    animation: wobble 2s 1;
-  }
-  .wave:active {
-            animation: none;
-  }
-  
-  @keyframes wave-animation {
-      0% { transform: rotate( 0.0deg) }
-     10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
-     20% { transform: rotate(-8.0deg) }
-     30% { transform: rotate(14.0deg) }
-     40% { transform: rotate(-4.0deg) }
-     50% { transform: rotate(10.0deg) }
-     60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
-    100% { transform: rotate( 0.0deg) }
-  }
-  
-  

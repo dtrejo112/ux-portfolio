@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import {Button, Container, IconButton, Tooltip } from '@mui/material';
+import {Button, Container, IconButton, Stack, Tooltip } from '@mui/material';
 import { Roboto } from 'next/font/google';
 import styles from './About.module.css';
-import WavingHandOutlinedIcon from '@mui/icons-material/WavingHandOutlined';
+import LinkedIn from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
 
 const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
@@ -19,20 +20,38 @@ export default function About() {
     <>
         <section id='about'> 
             <Container className={styles.container}>
-               <Box sx={{display: 'flex', alignItems: 'flex-start', gap: '12px', flexDirection: {xs: 'column', sm: 'row'}}}> 
-                <Typography className={`${styles.aboutMe} ${roboto.className}`} variant='h1' noWrap>
-                  Hello, I&apos;m Danny.
-                </Typography>
-                <Tooltip title="Wave" followCursor> 
-                  <IconButton>
-                      <WavingHandOutlinedIcon className={styles.wave} sx={{color: ' #242424', fontSize: { xs:'48px', sm:'52px', md: '64px'}}}/>
-                  </IconButton>
-                </Tooltip>
+              <Box>
+                <Box className={styles.titleContainer}>
+                  <Typography className={`${styles.title} ${roboto.className}`} variant='h1'>
+                    Designing With Development in Mind.
+                  </Typography>
                 </Box>
-                <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h2'  noWrap>
-                  Designing with development in mind.
-                </Typography>
-                <Button variant='contained' onClick={() => onView('/Daniel_Trejo_Resume.pdf')} > View Resume </Button>
+                <Box className={styles.subTitleContainer}>
+                  <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h2'>
+                  Creating Intuitive Experiences For Companies of Any Size, {"\n"} 
+                  Bridging the Gap Between Design and Development.
+                  </Typography>
+                </Box>
+                </Box> 
+                <Stack  direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 2, md: 2 }}>  
+                  <Button variant='contained' 
+                          onClick={() => onView('https://www.linkedin.com/in/daniel-trejo-0x/')} 
+                          size="large"
+                          endIcon={<EmailIcon />}
+                          
+                  > 
+                      Email Me 
+                  </Button>
+                  <Button 
+                      variant='outlined' 
+                      onClick={() => onView('https://www.linkedin.com/in/daniel-trejo-0x/')} 
+                      size='large'
+                      endIcon={<LinkedIn />}
+                  > 
+                      Let&apos;s Connect 
+                  </Button>
+                </Stack>
+                
             </Container>
           </section>
     </>  
