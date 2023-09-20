@@ -5,7 +5,6 @@ import TopNavigationBar from '@/components/navbar/NavBar';
 import About from '@/components/about/About';
 import { useRef } from 'react';
 import Skills from '@/components/skills/Skills';
-import Contact from '@/components/contact/Contact';
 import Footer from '@/components/footer/Footer';
 
 export async function getStaticProps() {
@@ -54,7 +53,6 @@ export default function Home({ projects }: Props) {
       <About />
       <ProjectCard projects={projects} />
       <Skills />
-      <Contact />
       <Footer />
     </>
   )

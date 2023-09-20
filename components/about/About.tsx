@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import {Button, Container, IconButton, Stack, Tooltip } from '@mui/material';
+import {Button, Container, Stack } from '@mui/material';
 import { Roboto } from 'next/font/google';
 import styles from './About.module.css';
 import LinkedIn from '@mui/icons-material/LinkedIn';
@@ -11,7 +11,14 @@ const roboto = Roboto({
   weight: ['100', '300', '400','500', '700', '900'],
   subsets: ['latin'],
 });
+/**
+ * Component Name: About
+ *
+ * Description:
+ * Contains the title and subtitle of the about section
+ * Also contains the button for emailing and linkedin link
 
+ */
 export default function About() {
   const onView = (url: string) => {
     window.open(url, "_blank", "noreferrer");
@@ -22,7 +29,8 @@ export default function About() {
             <Container className={styles.container}>
               <Box>
                 <Box className={styles.titleContainer}>
-                  <Typography className={`${styles.title} ${roboto.className}`} variant='h1'>
+                  <Typography className={`${styles.title} ${roboto.className}`} variant='h1'
+                              >
                     Designing With Development in Mind.
                   </Typography>
                 </Box>

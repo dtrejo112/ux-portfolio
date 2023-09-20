@@ -69,20 +69,7 @@ export default function CaseStudyNav({props} : any) {
               Summary
             </Button>
           </Link>
-          <Link href='#design' style={{textDecoration: 'none'}}> 
-            <Button
-              className={`${styles.navBtn} ${roboto.className}`}
-            >
-              Design
-            </Button>
-          </Link>
-          <Link href='#results' style={{textDecoration: 'none'}}> 
-            <Button
-              className={`${styles.navBtn} ${roboto.className}`}
-            >
-              Results
-            </Button>
-          </Link>
+
       </Box>
 
     </Toolbar>

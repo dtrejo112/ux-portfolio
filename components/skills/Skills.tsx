@@ -42,7 +42,7 @@ export default function Skills() {
     <>
         <section id='skills'>
             <Container className={styles.container}>
-                <Typography className={`${styles.skillsHeader} ${roboto.className}`} sx={{alignSelf:'flex-start'}} variant="h3" gutterBottom>
+                <Typography className={`${styles.skillsHeader} ${roboto.className}`} sx={{alignSelf:'flex-start'}} variant="h4" gutterBottom>
                    Skills
                 </Typography>
         

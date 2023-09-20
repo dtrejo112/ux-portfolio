@@ -4,7 +4,7 @@ import styles from './teachmi.module.css';
 import Head from 'next/head';
 import Image from 'next/image';
 import  { getTeachMiPageBlocks, getTeachMiPageProperties } from '../../components/notion';
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Typography, Stack } from '@mui/material';
 import CaseStudyNav from '@/components/navbar/CaseStudyNav';
 
 import imageOne from '../../public/teachmiimages/teachmiimage-1.png';
@@ -85,7 +85,7 @@ export default function TeachMi({ projectProperties, headings, bullets }: Props)
         <section>
         <Container> 
         <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 3, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-          <Grid item xs={12} sm={12} md={7} sx={{alignSelf: 'center'}}> 
+          <Grid item xs={12} sm={12} md={7} sx={{alignSelf: 'flex-start'}}> 
             <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
               {projectProperties['Name'].title[0].plain_text}
             </Typography>
@@ -94,7 +94,27 @@ export default function TeachMi({ projectProperties, headings, bullets }: Props)
                 {bullets[0]}
               </Typography>
             </Grid>
-            <Button variant='contained' sx={{mt: '24px'}}onClick={() => onView(`${projectProperties['Prototype'].url}`)} > View Prototype </Button>
+            <Stack direction={{ xs: 'column', sm: 'row'}} sx={{paddingTop: '24px', paddingBottom: '24px'}} spacing={{ xs: 1, sm: 2, md: 2 }}>  
+                   <Box>  
+                  <Button variant='contained' 
+                          onClick={() => onView(`${projectProperties['Prototype'].url}`)}
+                          size="large"
+                  > 
+                     View Prototype
+                  </Button>
+                  </Box>
+                  <Box>
+                  <Button 
+                      variant='outlined' 
+                      onClick={() => 
+                         onView('https://docs.google.com/presentation/d/e/2PACX-1vS_G46GWVkUXW-4G6sMjdL6AvS2YHlqvU5CZ4OHd0ccDuaBx6A2G4XtLc4LEF4bdx8o9eEudnAr-o6O/pub?start=false&loop=false&delayms=3000')} 
+                      size='large'
+                    
+                  > 
+                      View Case Study Slides
+                  </Button>
+                  </Box>
+                </Stack>
           </Grid>
           <Grid item xs={12} sm={12} md={5}> 
           <Image
@@ -142,345 +162,6 @@ export default function TeachMi({ projectProperties, headings, bullets }: Props)
                         </Grid>  
                       )} 
                   </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Container>
-        </section>
-        <section className={styles.design} id='design'>
-          {/* The Challenge */}
-        <Container> 
-          <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-              <Grid item xs={12} sm={12} md={8}> 
-                <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
-                  {headings[1]}
-                </Typography>
-                <Grid container item spacing={2}> 
-
-                    {bullets.slice(2, 13).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
-             
-                </Grid>
-              </Grid>
-            </Grid>
-            
-          </Container>
-       
-         {/* Empathize */}
-        <Container> 
-        <Grid sx={{justifyContent: { xs: "flex-start", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-               <Grid item xs={12} sm={12} md={8}> 
-                <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
-                  {headings[2]}
-                </Typography>
-                <Grid container item spacing={2}> 
-                    {bullets.slice(13, 22).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
-                </Grid>        
-              </Grid>
-              <Grid item xs={12} sm={12} md={5}> 
-              <Image
-                      src={imageTwo}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-          </Grid>
-            </Grid>
-          </Container>
-      
-        {/* Design */}
-        <Container> 
-          <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-              <Grid item xs={12} sm={12} md={8}> 
-                <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
-                  {headings[3]}
-                </Typography>
-              </Grid>
-                  <Grid container item spacing={2}> 
-                    {bullets.slice(22, 28).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
-                </Grid>
-            </Grid>
-          </Container>
-      {/* Test */}
-        <Container> 
-          <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-              <Grid item xs={12} sm={12} md={8}> 
-                <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
-                  {headings[4]}
-                </Typography>
-                <Grid container item spacing={2}> 
-                  
-                      {bullets.slice(28, 34).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
-                  
-                </Grid>
-              </Grid>
-            </Grid>
-          </Container>
-       {/* Design System */}
-        <Container> 
-          <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-              <Grid item xs={12} sm={12} md={8}> 
-                <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
-                  {headings[5]}
-                </Typography>
-                <Grid container item spacing={2}> 
-                      {bullets.slice(34, 39).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
-                </Grid>
-              </Grid>
-              <Grid item xs={12} sm={12} md={6}> 
-              <Image
-                      src={imageThree}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                 <Grid item xs={12} sm={12} md={6}> 
-                 <Image
-                      src={imageFour}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageFive}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                   
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageSix}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageSeven}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageEight}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageNine}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageTen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid container item spacing={2}> 
-                      {bullets.slice(39).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageEleven}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                 <Grid item xs={12} sm={12} md={6}> 
-                 <Image
-                      src={imageTwelve}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageThirteen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageFourteen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageFifteen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageSixteen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageSeventeen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}> 
-                <Image
-                      src={imageEighteen}
-                      alt={'Hero image for movitix projext'}
-                      className={`${styles.responsive} "w-full h-auto"`}
-                      sizes="100vw"
-                      width="0"
-                      height="0"
-                      quality={100}
-                      priority
-                      placeholder='blur' />
-                </Grid>
-            </Grid>
-            
-          </Container>
-          </section>
-        <section id='results'>
-        <Container> 
-          <Grid sx={{justifyContent: { xs: "center", sm: "flex-start", md: "flex-start"}} } container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-              <Grid item xs={12} sm={12} md={8}> 
-                <Typography className={`${styles.title} ${roboto.className}`} variant='h2' gutterBottom>
-                  {headings[6]}
-                </Typography>
-                <Grid container item spacing={2}> 
-                      {bullets.slice(40, 46).map((bullet, index) => 
-                        <Grid item xs={12} sm={12} md={12} key={index}> 
-                          <Typography className={`${styles.subTitle} ${roboto.className}`} variant='h6' gutterBottom>
-                          {bullet}
-                          </Typography>
-                        </Grid>  
-                      )} 
                 </Grid>
               </Grid>
             </Grid>

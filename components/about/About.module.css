@@ -42,7 +42,9 @@
     font-weight: 400 !important;
     white-space: pre-line !important;
     font-size: 2.625rem !important;
-    white-space: pre-wrap;
+    white-space: nowrap;
+
+
   }
   .subTitle {
     font-style: normal !important;
@@ -53,3 +55,19 @@
     white-space: pre-line !important;
     font-size: 1.3rem !important;
   }
+  /* .title::before {
+    content: "|";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    color: black;
+    background: rgb(209, 205, 205);
+    animation: typing 4s steps(24) forwards,
+      caret 1s infinite;
+  }
+  @keyframes typing {
+    to { width: 0 }
+  }
+  @keyframes caret {
+    50% { color: transparent }
+  } */
