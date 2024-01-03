@@ -92,9 +92,8 @@ export default function LinkedIn({ projectProperties, headings, bullets}: Props)
                   <Button 
                       variant='outlined' 
                       onClick={() => 
-                         onView('https://docs.google.com/presentation/d/e/2PACX-1vSn95jzCJlzsCTww4ust8hzGh24LU9Rj3_pVBfVZHuY4bvCVMYxSiuYeeTBuX9Q7bn9oVfOoKPyndpO/pub?start=false&loop=false&delayms=3000')} 
+                         onView('https://dannytrejo.notion.site/LinkedIn-Design-Exercise-1ca31f3e27c2497d9e3ef43460bfc074')} 
                       size='large'
-                    
                   > 
                       View Case Study Slides
                   </Button>
